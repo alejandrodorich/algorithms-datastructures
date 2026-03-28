@@ -41,6 +41,12 @@ def _quicksort(lst: list, low_index: int, high_index: int) -> None:
 
     if low_index >= high_index:
         return
+    
+    # edge case: unsorted list, two elements
+    if high_index - low_index == 1:
+        if lst[low_index] > lst[high_index]:
+            lst[low_index], lst[high_index] = lst[high_index], lst[low_index]
+        return
 
     left_pointer = low_index
     right_pointer = high_index
